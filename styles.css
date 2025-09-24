@@ -40,6 +40,10 @@ nav {
   background-color: var(--text-color);
   padding: 0 50px;
   height: 80px;
+
+  position: sticky;          /* keep your sticky behavior */
+  top: 0;
+  z-index: 9999
 }
 
 nav .left a {
@@ -529,26 +533,27 @@ nav .right a span {
 
 /* Projects Page */
 .container {
-  width: 60%;                     /* Only take up 60% of page width */
-  margin: 20px auto;               /* Center horizontally with spacing */
-  border: 1px solid #ccc;          /* Light gray border */
-  border-radius: 12px;             /* Rounded corners */
+  width: 60%;                     
+  margin: 20px auto;               
+  border: 1px solid #ccc;          
+  border-radius: 12px;             
   padding: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;          /* White background inside container */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* Subtle shadow */
+  background-color: #fff;          
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: auto !important;
 }
 
 .container:hover {
-  transform: translateY(-3px);     /* Small lift on hover */
+  transform: translateY(-3px);     
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .left-proj, .right-proj {
-  flex: 1;                         /* Share space nicely */
+  flex: 1;                         
   padding: 20px;
 }
 
@@ -566,12 +571,11 @@ nav .right a span {
 
 .portfolioimg {
   width: 25%;
-  max-width: 220px;                /* Prevent oversized images */
+  max-width: 220px;                
   border-radius: 8px;
   margin-right: 20px;
 }
 
-/* Center text-only cards when .no-img is a child of .container */
 .container > .no-img {
   text-align: center;
   margin-left: auto;
@@ -579,15 +583,27 @@ nav .right a span {
   width: 100%;
 }
 
-/* If supported, also center the whole flex row when it contains .no-img */
+
 .container:has(> .no-img) {
   justify-content: center;
   align-items: center;
 }
 
-/* Keep it centered on small screens too */
+
 @media (max-width: 780px) {
   .container > .no-img {
     text-align: center;
   }
+}
+
+/* Container with download button */
+.container.with-download {
+  flex-wrap: wrap;   
+}
+
+.container.with-download .contact-action {
+  flex-basis: 100%;           
+  display: flex;              
+  justify-content: center;
+  margin-top: 16px;           
 }
